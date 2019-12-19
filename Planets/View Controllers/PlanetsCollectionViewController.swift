@@ -23,11 +23,13 @@ class PlanetsCollectionViewController: UICollectionViewController {
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .plutoSwitchWasFlipped, object: nil)
 		
 		updateViews()
 	}
 	
-	func updateViews() {
+	@objc func updateViews() {
         collectionView?.reloadData()
 	}
     
